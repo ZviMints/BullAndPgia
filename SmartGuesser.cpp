@@ -59,6 +59,7 @@ return ans;
 /* ======================================================================================== */
 void SmartGuesser::learnLong(string calculateBullAndPgia_ans) {
 SmartGuesser::Guesser::learn(calculateBullAndPgia_ans);
+int _deleted = 0; // Only for printing.
 if(_perm.length() < this->length) { 
 	string delimiter = ",";
 	string token = this->last_ans.substr(0, this->last_ans.find(delimiter)); // token is Bull results
@@ -66,17 +67,20 @@ if(_perm.length() < this->length) {
 	if( Bull > 0) {
 			for(int i=0; i<Bull; i++) {
 				_perm += to_string(curr-1);
-			}
-	} // End Bull > 0 IF
+			} // End Bull > 0 IF
+			//std::cout << "(1) Make String:" << _perm << std::endl;
+
+	} // End Bull > 0 IF 
 	if(_perm.length() == this->length)
 	{
 		sort(_perm.begin(), _perm.end());
 		do 
 		{
 			AllPerms.push_front(_perm); // Push to database
+			//std::cout << "(2) Add Perm to AllPerms Array:" << _perm << std::endl;
 		} while(next_permutation(_perm.begin(), _perm.end()));
 	}
-} // End if
+} // End if _perm.length() < this->length()
 else
 {
 	list<string>::iterator iterator = AllPerms.begin(); // Initialize iterator
@@ -86,11 +90,16 @@ else
 		int equals = calculateBullAndPgia(_perm,current_perm).compare(this->last_ans);
 		if(equals != 0)
 		{
+			_deleted++;
 			iterator = AllPerms.erase(iterator); // Erasing element represented by iterator 
+			// std::cout << "(3) Erase the Bad Perms:" << current_perm << std::endl;
+
 		}
 		else iterator++;
 	}
 } // End else
+	std::cout << "(4) Leave all Perms that fit " << _perm << " With calculateBullAndPgia values " << calculateBullAndPgia_ans << std::endl;
+	std::cout << "Deleted " << _deleted << " Values, Left with " << AllPerms.size() << std::endl;
 	// for (auto v : AllPerms) // Priniting Values
     // cout << v << ","; // Printing Values
 	// cout << endl;
