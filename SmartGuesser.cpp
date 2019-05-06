@@ -18,7 +18,6 @@ void SmartGuesser::learn(string calculateBullAndPgia_ans) {
 /* ======================================================================================== */
 
 void SmartGuesser::startNewGame(unsigned int length) {
-	if(length <= 0 ) throw std::invalid_argument("Invalid argument for length [ le 0 ] ");
 	(length < 7) ? SmartGuesser::startNewGameShort(length) : SmartGuesser::startNewGameLong(length);
 }
 
