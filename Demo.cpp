@@ -42,10 +42,10 @@ int main() {
 
 		uint number_of_guesses;
 		if( len < 7 ) {
-		// number_of_guesses = play(randy, smarty, len , 100);  // smarty should always win in at most 10 turns!
+		number_of_guesses = play(randy, smarty, len , 100);  // smarty should always win in at most 10 turns!
 		}
 		else {
-    	std::this_thread::sleep_for(std::chrono::milliseconds(2000));  // Sleep
+    	//std::this_thread::sleep_for(std::chrono::milliseconds(2000));  // Sleep
 		number_of_guesses = play(randy, smarty, len , 100);  // smarty should always win in at most 50 turns!
 		}
 
@@ -54,7 +54,7 @@ int main() {
 		double elaspedTimeMs = std::chrono::duration<double, std::milli>(t_end-t_start).count();
     	
 		cout << number_of_guesses << " ," << elaspedTimeMs << ") for (Len,# Guesses,Time (mills))" << endl;
-		cout << "******************************* END ***********************" << endl;
+		//cout << "******************************* END ***********************" << endl;
 	
 	
 	}

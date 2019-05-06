@@ -98,8 +98,8 @@ else
 		else iterator++;
 	}
 } // End else
-	std::cout << "(4) Leave all Perms that fit " << _perm << " With calculateBullAndPgia values " << calculateBullAndPgia_ans << std::endl;
-	std::cout << "Deleted " << _deleted << " Values, Left with " << AllPerms.size() << std::endl;
+//	std::cout << "(4) Leave all Perms that fit " << _perm << " With calculateBullAndPgia values " << calculateBullAndPgia_ans << std::endl;
+//	std::cout << "Deleted " << _deleted << " Values, Left with " << AllPerms.size() << std::endl;
 	// for (auto v : AllPerms) // Priniting Values
     // cout << v << ","; // Printing Values
 	// cout << endl;
